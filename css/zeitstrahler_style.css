@@ -1,0 +1,253 @@
+.zeitstrahler_wrapper {
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+.zeitstrahler_wrapper * {
+  	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.zeitstrahler_wrapper::before {
+  	position: absolute;
+  	left: 50%;
+  	top: 0;
+  	content: '';
+  	display: block;
+  	width: .4em;
+  	height: 100%;
+  	margin-left: -.2em;
+}
+
+.zeitstrahler_element {
+  	width: 45%;
+  	padding: 1em;
+  	margin-bottom: 1em;
+}
+
+.zeitstrahler_element:nth-of-type(2) {
+  	margin-top: 2em;
+}
+
+.zeitstrahler_nojs .zeitstrahler_element:nth-of-type(2n-1) {
+  	float: left;
+  	margin-right: 10%;
+}
+
+.zeitstrahler_nojs .zeitstrahler_element:nth-of-type(2n) {
+  	float: right;
+  	margin-top: 2em;
+}
+
+.zeitstrahler_js .zeitstrahler_left {
+  	float: left;
+}
+
+.zeitstrahler_js .zeitstrahler_right {
+  	float: right;
+}
+
+.zeitstrahler_element::before {
+  	position: absolute;
+  	left: 50%;
+  	content: '';
+  	display: block;
+  	width: .6em;
+  	height: .6em;
+  	margin-left: -0.6em;
+  	margin-top: -0.1em;
+  	border-radius: 100%;
+  	border-style: solid;
+  	border-width: .3em;
+}
+
+.zeitstrahler_arrow {
+  	position: relative;
+  	display: block;
+  	height: 0;
+}
+
+.zeitstrahler_nojs .zeitstrahler_element:nth-of-type(2n-1) .zeitstrahler_arrow::before,
+.zeitstrahler_js .zeitstrahler_left .zeitstrahler_arrow::before {
+  	content: '';
+  	height: 0;
+  	width: 0;
+  	display: block;
+  	border-style: solid;
+  	border-left-width: .6em;
+  	border-top-width: .6em;
+  	border-bottom-width: .6em;
+  	border-right-width: 0;
+  	border-top-color: transparent !important;
+  	border-bottom-color: transparent !important;
+  	position: absolute;
+  	right: 0;
+  	margin-right: -1.6em;
+  	-webkit-transform: scale(1.2);
+  	-moz-transform: scale(1.2);
+  	-o-transform: scale(1.2);
+  	transform: scale(1.2);
+}
+
+.zeitstrahler_nojs .zeitstrahler_element:nth-of-type(2n) .zeitstrahler_arrow::before,
+.zeitstrahler_js .zeitstrahler_right .zeitstrahler_arrow::before {
+  	content: '';
+  	height: 0;
+  	width: 0;
+  	display: block;
+  	border-style: solid;
+  	border-right-width: .6em;
+  	border-top-width: .6em;
+  	border-bottom-width: .6em;
+  	border-left-width: 0;
+  	border-top-color: transparent !important;
+  	border-bottom-color: transparent !important;
+  	position: absolute;
+  	left: 0;
+  	margin-left: -1.6em;
+  	-webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-o-transform: scale(1.2);
+	transform: scale(1.2);
+}
+
+.zeitstrahler_element_content,
+.zeitstrahler_element_content p {
+	padding: 0;
+	margin: 0;
+}
+
+.zeitstrahler_element_date {
+	display: block;
+}
+
+.zeitstrahler_nojs .zeitstrahler_element:nth-of-type(2n-1) .zeitstrahler_element_date,
+.zeitstrahler_js .zeitstrahler_left .zeitstrahler_element_date {
+	text-align: right;
+}
+
+.zeitstrahler_date {
+	text-align: center;
+	position: relative;
+}
+
+/* responsive */
+
+@media screen and (max-width: 960px) {
+.zeitstrahler_wrapper::before {
+  	left: 1em;
+}
+  
+.zeitstrahler_element {
+  	margin-right: 1em !important;
+  	width: auto;
+  	padding: 1em;
+  	margin-left: 2.5em;
+  	float: none !important;
+}
+  
+.zeitstrahler_element::before {
+  	left: 1em;
+}
+
+.zeitstrahler_element_date {
+	text-align: left !important;
+}
+  
+.zeitstrahler_nojs .zeitstrahler_element:nth-of-type(2n-1) .zeitstrahler_arrow::before,
+.zeitstrahler_js .zeitstrahler_left .zeitstrahler_arrow::before {
+  	border-right-width: .6em;
+  	border-left-width: 0;
+  	left: 0;
+  	margin-left: -1.6em;
+  	margin-top: -.1em;
+}
+  
+.zeitstrahler_element:nth-of-type(2) {
+  	margin-top: 0;
+}
+
+.zeitstrahler_date {
+	text-align: left;
+}
+}
+
+
+/* different styles */
+
+.zeitstrahler_wrapper.grey::before {
+	background-color: rgb(76,76,76);
+}
+
+.zeitstrahler_wrapper.grey .zeitstrahler_element {
+	background-color: #CFCFCF;
+}
+
+.zeitstrahler_wrapper.grey .zeitstrahler_element::before {
+  	border-color: rgb(76,76,76);
+  	background-color: rgb(76,76,76);
+}
+
+.zeitstrahler_wrapper.grey .zeitstrahler_element_date {
+	font-weight: bold;
+}
+
+.zeitstrahler_wrapper.grey .zeitstrahler_element_heading {
+	margin-top: 0 !important;
+}
+
+.zeitstrahler_wrapper.grey .zeitstrahler_arrow::before {
+	border-color: #CFCFCF;
+}
+
+.zeitstrahler_wrapper.grey .zeitstrahler_date span {
+	background-color: rgb(76,76,76);
+	color: #FFF;
+	display: inline-block;
+	border-radius: .2em;
+	padding-left: .4em;
+	padding-right: .4em;
+	font-weight: bold;
+}
+
+
+
+.zeitstrahler_wrapper.greyRedRound::before {
+	background-color: rgb(76,76,76);
+}
+
+.zeitstrahler_wrapper.greyRedRound .zeitstrahler_element {
+	background-color: transparent;
+	border-radius: 5px;
+	box-shadow: 0 0 5px 2px rgb(76,76,76);
+}
+
+.zeitstrahler_wrapper.greyRedRound .zeitstrahler_element::before {
+  	border-color: rgb(76,76,76);
+  	background-color: rgb(240,76,76);
+}
+
+.zeitstrahler_wrapper.greyRedRound .zeitstrahler_element_date {
+	font-weight: bold;
+	color: rgb(240,76,76);
+}
+
+.zeitstrahler_wrapper.greyRedRound .zeitstrahler_element_heading {
+	margin-top: 0 !important;
+}
+
+.zeitstrahler_wrapper.greyRedRound .zeitstrahler_arrow::before {
+	border-color: rgb(240,76,76);
+}
+
+.zeitstrahler_wrapper.greyRedRound .zeitstrahler_date span {
+	background-color: rgb(240,76,76);
+	color: #FFF;
+	display: inline-block;
+	border-radius: .2em;
+	padding-left: .4em;
+	padding-right: .4em;
+	font-weight: bold;
+}
